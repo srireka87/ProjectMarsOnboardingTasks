@@ -19,17 +19,35 @@ Scenario Outline:AddNew Language with Valid Credentials
 	| Japanese       | Conversational    |
 	
 
-Scenario Outline:Updating Language and Language Level with Valid credentials in Profile
+Scenario Outline:Updating Language with Valid credentials in Profile
 	Given I logged in to ProjectMars successfully
 	And I navigate to Profile Language Page
-	When I Update '<UpdateAddLanguage>' and '<UpdateLanguage Level>' on existing records
-	Then The'<UpdateAddLanguage>'and '<UpdateLanguage Level>' details should be updated successfully
+	When I Update '<AddLanguage>' and '<Language Level>' on existing records
+	Then the record should be updated in '<AddLanguage>'and '<Language Level>' successfully
 
 	Examples:
-	| UpdateAddLanguage | UpdateLanguage Level   |
-	| English           | Fluent                 |    
-	| Mandarin          | Basic	                 |
+	| AddLanguage       | Language Level   |
+	| English           | Fluent           |    
+	| Mandarin          | Basic	           |
 
 
 
+Scenario Outline: Adding & Updating  the sameLanguage
+	Given I logged in to ProjectMars successfully
+	And I navigate to Profile Language Page
+	When I Add/Update '<SameLanguage>' and '<SameLanguage Level>' on existing records
+	Then pop up message display as 'This language is already added to your language list.'
+	
 
+	Examples:
+	| SameLanguage      | SameLanguage Level  |
+	| French            | Basic               |    
+	| Spanish           | Fluent              |
+
+
+
+Scenario: Deleting the Language and Language Level
+Given I logged in to ProjectMars successfully
+And I navigate to Profile Language Page
+When I click Delete Button 
+Then the records should be deleted

@@ -47,6 +47,8 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
 
             string actualNewLanguageLevel = languageTabObj.GetActualLanguageLevelAssertion(driver);
             Assert.That(actualNewLanguageLevel == level, "Language Level is not matching");
+
+            languageTabObj.CloseTheDriver(driver);
         }
 
         [When(@"I Update '([^']*)' and '([^']*)' on existing records")]
@@ -56,16 +58,54 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
             languageTabObj.UpdateLanguages(driver, updateLanguage, updateLangugeLevel);
 
         }
-        [Then(@"The'([^']*)'and '([^']*)' details should be updated successfully")]
-        public void ThenTheandDetailsShouldBeUpdatedSuccessfully(string updateLanguage, string updateLanguageLevel)
+
+        [Then(@"the record should be updated in '([^']*)'and '([^']*)' successfully")]
+        public void ThenTheRecordShouldBeUpdatedInAndSuccessfully(string updateLanguage, string updateLanguageLevel)
         {
+
             string actualUpdatedLanguage = languageTabObj.ActualUpdateLanguageAssertion(driver);
             Assert.That(actualUpdatedLanguage == updateLanguage, "Updated Language is Unsuccessful");
 
             string actualUpdatedLanguageLevel = languageTabObj.ActualUpdateLanguageLevelAssertion(driver);
             Assert.That(actualUpdatedLanguageLevel == updateLanguageLevel, "Updated Language Level is Unsuccessful");
 
+            languageTabObj.CloseTheDriver(driver);
+
         }
+
+        [When(@"I Add/Update '([^']*)' and '([^']*)' on existing records")]
+        public void WhenIAddUpdateAndOnExistingRecords(string sameLanguage, string sameLanguageLevel)
+        {
+            languageTabObj.UpdateLanguages(driver, sameLanguage, sameLanguageLevel);
+
+        }
+
+        [Then(@"pop up message display as '([^']*)'")]
+        public void ThenPopUpMessageDisplayAs(string p0)
+        {
+          
+            string actualPopUpMessage = languageTabObj.SameLanguageAssertion(driver);
+            Assert.That(actualPopUpMessage == p0, "Language is added");
+
+            languageTabObj.CloseTheDriver(driver);
+        }
+
+
+        [When(@"I click Delete Button")]
+        public void WhenIClickDeleteButton()
+        {
+            languageTabObj.DeleteLanguage(driver);
+        }
+
+        [Then(@"the records should be deleted")]
+        public void ThenTheRecordsShouldBeDeleted()
+        {
+            String actualDeletedRecord=languageTabObj.DeleteAssertion(driver);
+            Assert.That(actualDeletedRecord !="Spanish", "Delete is unsuccessful");
+            languageTabObj.CloseTheDriver(driver);
+        }
+
+
 
     }
 }

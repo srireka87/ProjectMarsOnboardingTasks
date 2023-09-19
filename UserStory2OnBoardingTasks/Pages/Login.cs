@@ -16,6 +16,7 @@ namespace UserStory2OnBoardingTasks.Pages
             //ChromeDriver Maximise and go to ProjectMars
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl("http://localhost:5000/");
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
 
             //Select Signin
             IWebElement signInButton = driver.FindElement(By.XPath("//*[@id=\"home\"]/div/div/div[1]/div/a"));
