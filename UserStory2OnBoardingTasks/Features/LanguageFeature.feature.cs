@@ -165,10 +165,10 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Adding & Updating  the sameLanguage")]
+        [NUnit.Framework.DescriptionAttribute("Adding & Updating  the SameLanguage")]
         [NUnit.Framework.CategoryAttribute("Adding/UpdatingSameLanguages")]
         [NUnit.Framework.TestCaseAttribute("French", "Basic", null)]
-        [NUnit.Framework.TestCaseAttribute("Spanish", "Fluent", null)]
+        [NUnit.Framework.TestCaseAttribute("Mandarin", "Basic", null)]
         public void AddingUpdatingTheSameLanguage(string sameLanguage, string sameLanguageLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -181,7 +181,7 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("SameLanguage", sameLanguage);
             argumentsOfScenario.Add("SameLanguage Level", sameLanguageLevel);
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Adding & Updating  the sameLanguage", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Adding & Updating  the SameLanguage", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 36
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -225,7 +225,7 @@ this.ScenarioInitialize(scenarioInfo);
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Language", language);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deleting the Language and Language Level", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 50
+#line 49
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -235,16 +235,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 51
+#line 50
 testRunner.Given("I logged in to ProjectMars successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 52
+#line 51
 testRunner.And("I navigate to Profile Language Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 53
+#line 52
 testRunner.When(string.Format("I click Delete Button for the \'{0}\'", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 54
+#line 53
 testRunner.Then(string.Format("the records should be deleted and message display as \'{0} has been deleted from y" +
                             "our languages\'", language), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

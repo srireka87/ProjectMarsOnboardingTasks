@@ -33,17 +33,16 @@ Scenario Outline:Updating Language with Valid credentials in Profile
 
 
 @Adding/UpdatingSameLanguages
-Scenario Outline: Adding & Updating  the sameLanguage
+Scenario Outline: Adding & Updating  the SameLanguage
 	Given I logged in to ProjectMars successfully
 	And I navigate to Profile Language Page
 	When I Add/Update '<SameLanguage>' and '<SameLanguage Level>' on existing records
 	Then pop up message display as 'This language is already added to your language list.'
 	
-
 	Examples:
 	| SameLanguage      | SameLanguage Level  |
 	| French            | Basic               |    
-	| Spanish           | Fluent              |
+	| Mandarin          | Basic               |
 
 
 @DeletingLanguages
