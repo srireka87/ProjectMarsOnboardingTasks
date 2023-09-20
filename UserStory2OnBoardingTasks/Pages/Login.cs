@@ -9,46 +9,36 @@ using UserStory2OnBoardingTasks.Utilities;
 
 namespace UserStory2OnBoardingTasks.Pages
 {
-   public class Login
+   public class Login:CommonDriver
     {
-        public void LoginFunction(IWebDriver driver)
+       public Login(IWebDriver driver)
         {
-            //ChromeDriver Maximise and go to ProjectMars
-            driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl("http://localhost:5000/");
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-
-            //Select Signin
-            IWebElement signInButton = driver.FindElement(By.XPath("//*[@id=\"home\"]/div/div/div[1]/div/a"));
-            signInButton.Click();
-
-           // WaitHelpers.WaitToBeClickable(driver, "XPath", "//*[@id=\\\"home\\\"]/div/div/div[1]/div/a", 3);
-
-            //Enter EmailAddress
-            IWebElement emailAddressTextbox = driver.FindElement(By.Name("email"));
-            emailAddressTextbox.SendKeys("srireka87@gmail.com");
-
-            //Enter Password
-            IWebElement passwordTextbox = driver.FindElement(By.Name("password"));
-            passwordTextbox.SendKeys("Rosesri@23");
-
-            //Select Remember me checkbox
-            IWebElement rememberMeCheckbox = driver.FindElement(By.Name("rememberDetails"));
-            rememberMeCheckbox.Click();
-
-            //Click login Button
-
-            IWebElement loginButton = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[4]/button"));
-            loginButton.Click();
-
+            this.driver = driver;
+        } 
+        
+         By signInButton = By.XPath("//*[@id=\"home\"]/div/div/div[1]/div/a");
+         By emailAddressTextbox = By.Name("email");
+         By passwordTextbox = By.Name("password");
+         By rememberMeCheckbox = By.Name("rememberDetails");
+         By loginButton = By.XPath("/html/body/div[2]/div/div/div[1]/div/div[4]/button");
+         By hiSrireka = By.XPath("//body/div[@id='account-profile-section']/div[1]/div[1]/div[2]/div[1]/span[1]");
+        
+        public void LoginFunction(string email,string password)
+        {
+            driver.FindElement(signInButton).Click();
+            driver.FindElement(emailAddressTextbox).SendKeys(email);
+            driver.FindElement(passwordTextbox).SendKeys(password);
+            driver.FindElement(rememberMeCheckbox).Click();
+            driver.FindElement(loginButton).Click();
         }
-        public void LoginAssertion(IWebDriver driver)
+        public void LoginAssertion()
 
         {
-            WaitHelpers.WaitToBeVisible(driver, "XPath", "//body/div[@id='account-profile-section']/div[1]/div[1]/div[2]/div[1]/span[1]", 5);
-            IWebElement hiSrireka = driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/div[1]/div[2]/div[1]/span[1]"));
-            Assert.That(hiSrireka.Text =="Hi Srireka","Login Unsuccessful");
-            Console.Out.WriteLine(hiSrireka.Text);
+            Thread.Sleep(4000);
+            WaitHelpers.WaitToBeVisible(driver, "XPath", "//body/div[@id='account-profile-section']/div[1]/div[1]/div[2]/div[1]/span[1]",20);
+            string actualUserName =driver.FindElement(hiSrireka).Text;
+            Assert.That(actualUserName =="Hi Srireka","Login Unsuccessful");
+            Console.Out.WriteLine(actualUserName);
         }
 
     }

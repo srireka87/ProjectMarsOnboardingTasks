@@ -4,7 +4,7 @@ As a ProjectMars User
 I want to Add,Update and Delete profile Langauage details
 So that I can show people seeking what languags I hold 
 
-@tag1
+@AddingNewLanguages
 Scenario Outline:AddNew Language with Valid Credentials
 	Given I logged in to ProjectMars successfully
 	And I navigate to Profile Language Page
@@ -19,6 +19,7 @@ Scenario Outline:AddNew Language with Valid Credentials
 	| Japanese       | Conversational    |
 	
 
+@UpdateLanguages
 Scenario Outline:Updating Language with Valid credentials in Profile
 	Given I logged in to ProjectMars successfully
 	And I navigate to Profile Language Page
@@ -31,7 +32,7 @@ Scenario Outline:Updating Language with Valid credentials in Profile
 	| Mandarin          | Basic	           |
 
 
-
+@Adding/UpdatingSameLanguages
 Scenario Outline: Adding & Updating  the sameLanguage
 	Given I logged in to ProjectMars successfully
 	And I navigate to Profile Language Page
@@ -45,9 +46,13 @@ Scenario Outline: Adding & Updating  the sameLanguage
 	| Spanish           | Fluent              |
 
 
-
-Scenario: Deleting the Language and Language Level
+@DeletingLanguages
+Scenario Outline: Deleting the Language and Language Level
 Given I logged in to ProjectMars successfully
 And I navigate to Profile Language Page
-When I click Delete Button 
-Then the records should be deleted
+When I click Delete Button for the '<Language>'
+Then the records should be deleted and message display as '<Language> has been deleted from your languages'
+
+Examples: 
+| Language  |
+| Mandarin  |
