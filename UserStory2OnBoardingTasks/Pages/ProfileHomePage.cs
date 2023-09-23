@@ -17,13 +17,21 @@ namespace UserStory2OnBoardingTasks.Pages
 
         By profileTab = By.XPath("/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/a[2]");
         By languageTab = By.XPath("//a[contains(text(),'Languages')]");
+        By skillTab = By.XPath("//a[contains(text(),'Skills')]");
 
-        public void GotoProfileLangauge()
+        public void GoToProfileLangauges()
         {
-           WaitHelpers.WaitToBeVisible(driver, "XPath", "/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/a[2]", 3);
+           WaitHelpers.WaitToBeVisible(driver, "XPath","/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/a[2]", 3);
            driver.FindElement(profileTab).Click();
            driver.FindElement(languageTab).Click();
         }
+        public void GoToProfileSkills()
+        {
+            WaitHelpers.WaitToBeVisible(driver, "XPath","/html[1]/body[1]/div[1]/div[1]/section[1]/div[1]/a[2]", 3);
+            driver.FindElement(profileTab).Click();
+            driver.FindElement(skillTab).Click();
+        }
+       
 
     }
 }

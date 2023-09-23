@@ -10,9 +10,8 @@ using UserStory2OnBoardingTasks.Utilities;
 namespace UserStory2OnBoardingTasks.StepDefinitions
 {
     [Binding]
-    public class LanguageFeaturesStepDefinitions
+    public class LanguageFeaturesStepDefinitions:CommonDriver
     {
-        private IWebDriver driver;
         Login loginPageObj;
         ProfileHomePage profileHomePageObj;
         LanguagesTabPage languageTabObj;
@@ -35,7 +34,7 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
         public void GivenINavigateToProfileLanguagePage()
         {
             profileHomePageObj = new ProfileHomePage(driver);
-            profileHomePageObj.GotoProfileLangauge();
+            profileHomePageObj.GoToProfileLangauges();
         }
 
         [When(@"I '([^']*)' and '([^']*)'")]
@@ -73,18 +72,26 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
             Assert.That(actualUpdatedLanguageLevel == updateLanguageLevel, "Updated Language Level is Unsuccessful");
         }
 
-        [When(@"I Add/Update '([^']*)' and '([^']*)' on existing records")]
-        public void WhenIAddUpdateAndOnExistingRecords(string sameLanguage, string sameLanguageLevel)
+        [When(@"I Updating '([^']*)' and '([^']*)' on existing records")]
+        public void WhenIUpdatingAndOnExistingRecords(string sameLanguage, string sameLanguageLevel)
         {
             languageTabObj = new LanguagesTabPage(driver);
             languageTabObj.UpdateLanguages(sameLanguage, sameLanguageLevel);
         }
-
+          
         [Then(@"pop up message display as '([^']*)'")]
         public void ThenPopUpMessageDisplayAs(string p0)
         {
             string actualPopUpMessage = languageTabObj.SameLanguageAssertion();
             Assert.That(actualPopUpMessage == p0, "Language is added");
+        }
+
+        [Given(@"Adding '([^']*)' and '([^']*)'")]
+        public void GivenAddingAnd(string language,string level)
+        {
+            languageTabObj = new LanguagesTabPage(driver);
+            languageTabObj.AddNewLanguage(language,level);
+
         }
 
         [When(@"I click Delete Button for the '([^']*)'")]
@@ -101,6 +108,49 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
             Assert.That(actualPopUpMessage == p0, "Deleting Language is unsuccessful");
 
         }
+        [When(@"I adding'([^']*)' and '([^']*)'")]
+        public void WhenIAddingAnd(string language, string level)
+        {
+            languageTabObj = new LanguagesTabPage(driver);
+            languageTabObj.CancelLanguage(language, level);
+        }
+
+        [When(@"Click Cancel Button")]
+        public void WhenClickCancelButton()
+        {
+            languageTabObj.CancelFunction();
+        }
+
+        [Then(@"the'([^']*)'and '([^']*)' details should be cancelled successfully")]
+        public void ThenTheandDetailsShouldBeCancelledSuccessfully(string language, string level)
+        {
+            languageTabObj.CancelAssertion();
+        }
+
+        [When(@"I  enter only '([^']*)' OR '([^']*)'")]
+        public void WhenIEnterOnlyOR(string language, string level)
+        {
+            languageTabObj = new LanguagesTabPage(driver);
+            languageTabObj.EnterOnlyLnaguageORLevel(language,level);
+
+        }
+
+        [Then(@"notification display as '([^']*)'")]
+        public void ThenNotificationDisplayAs(string p0)
+        {
+            string actualNotificationMessage = languageTabObj.EnterOnlyLanguageLevelAssertion();
+            Console.WriteLine(actualNotificationMessage);
+            Console.WriteLine(p0);
+            Assert.That(actualNotificationMessage == p0, "Unsuccessful");
+        }
+
+
+
+
+
+
+
+
 
     }
 }

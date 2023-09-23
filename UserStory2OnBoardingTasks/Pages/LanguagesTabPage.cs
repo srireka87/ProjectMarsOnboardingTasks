@@ -19,9 +19,9 @@ namespace UserStory2OnBoardingTasks.Pages
 
         //Adding New Language
         By addNewButton = By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div");
-        By addLanguageTextBox = By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[1]/input");
+        By addLanguageTextBox = By.XPath("//input[@placeholder='Add Language']");
         By addLanguageLevelDropDown = By.TagName("select");
-        By addButton = By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/div/div[3]/input[1]");
+        By addButton = By.XPath("//input[@value='Add']");
         By actualLanguage = By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[1]");
         By actualLanguageLevel = By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[2]");
 
@@ -33,16 +33,21 @@ namespace UserStory2OnBoardingTasks.Pages
         By actualUpdatedLanguage = By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[1]");
         By actualUpdatedLanguageLevel = By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[2]");
         
-        //Add /Updating the same Language PopUpMsg
+        //Add &Updating the same Language PopUpMsg
         By actualPopUpMsg = By.XPath("//div[@class='ns-box-inner']");
 
         //Deleting icon
         By deleteIcon = By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[last()]/span[2]/i");
         By actualPopUpDeleteMsg = By.XPath("//div[@class='ns-box-inner']");
+        
+        By cancelButton = By.XPath("//input[@value='Cancel']");
+        By languageTab = By.XPath("//a[contains(text(),'Languages')]");
+
+        By notificationForOnlyEnteringLanguage = By.XPath("//div[@class='ns-box-inner']");
+
 
         public void AddNewLanguage(string language, string level)
         {
-
             driver.FindElement(addNewButton).Click();
             driver.FindElement(addLanguageTextBox).SendKeys(language);
             driver.FindElement(addLanguageLevelDropDown).SendKeys(level);
@@ -50,72 +55,88 @@ namespace UserStory2OnBoardingTasks.Pages
         }
         public string GetActualLanguageAssertion()
         {
-            Thread.Sleep(4000);
-            WaitHelpers.WaitToBeVisible(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[1]",5);
+            WaitHelpers.WaitToBeVisible(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[1]",7);
             string actualLanguage1 =driver.FindElement(actualLanguage).Text;
             return actualLanguage1;
         }
         public string GetActualLanguageLevelAssertion()
         {
-            Thread.Sleep(4000);
-            WaitHelpers.WaitToBeVisible(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[2]",5);
+            WaitHelpers.WaitToBeVisible(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[2]",7);
             string actualLanguageLevel1 = driver.FindElement(actualLanguageLevel).Text;
             return actualLanguageLevel1;
         }
         public void UpdateLanguages(string updateLanguage, string updateLevel)
-        { 
-            //Click Update icon       
-             driver.FindElement(updateIcon).Click();
-
-            //Update the Language
+        {
+           
+            Thread.Sleep(5000);
+            driver.FindElement(updateIcon).Click();
             driver.FindElement(updateLanguageTextBox).Clear();
             driver.FindElement(updateLanguageTextBox).SendKeys(updateLanguage);
-
-            //update the  Language Level
             driver.FindElement(updateLanguageLevelDropDown).Click();
             driver.FindElement(updateLanguageLevelDropDown).SendKeys(updateLevel);
-
-            //Click Update Button
             driver.FindElement(updateButton).Click();
         }
         public string ActualUpdateLanguageAssertion()
         {
-            //Get the Updated New language  for validation
             Thread.Sleep(2000);
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-            WaitHelpers.WaitToBeVisible(driver,"XPath","//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[1]",10);
+            WaitHelpers.WaitToBeVisible(driver,"XPath","//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[1]",70);
             string actualUpdatedLanguage1 = driver.FindElement(actualUpdatedLanguage).Text;
             return actualUpdatedLanguage1;
         }
         public string ActualUpdateLanguageLevelAssertion()
         {
-            //Get the upated New Language Level  for Validation
-            Thread.Sleep(2000);
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
-            WaitHelpers.WaitToBeVisible(driver,"XPath","//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[2]",20);
+            WaitHelpers.WaitToBeVisible(driver,"XPath","//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody[last()]/tr/td[2]",70);
             string actualUpdatedLanguageLevel1= driver.FindElement(actualUpdatedLanguageLevel).Text;
             return actualUpdatedLanguageLevel1;
         }
         public string SameLanguageAssertion()
         {
-            Thread.Sleep(3000);
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
-            WaitHelpers.WaitToBeVisible(driver, "XPath", "//div[@class='ns-box-inner']",20);
+            
+            WaitHelpers.WaitToBeVisible(driver, "XPath", "//div[@class='ns-box-inner']",40);
             string actualPopUpMsg1 =driver.FindElement(actualPopUpMsg).Text;
             return actualPopUpMsg1;
         }
         public void DeleteLanguage()
         {
-           
+
+            Thread.Sleep(4000);
             driver.FindElement(deleteIcon).Click();
         }
         public string DeleteAssertion()
         {
-            Thread.Sleep(4000);
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
-            WaitHelpers.WaitToBeVisible(driver, "XPath", "//div[@class='ns-box-inner']",20);
+            Thread.Sleep(2000);
+            WaitHelpers.WaitToBeVisible(driver, "XPath", "//div[@class='ns-box-inner']",50);
             string actualPopUpDeleteMsg1= driver.FindElement(actualPopUpMsg).Text;
             return actualPopUpDeleteMsg1;
+        }
+        public void CancelLanguage(string language,string level)
+        {
+            driver.FindElement(addNewButton).Click();
+            driver.FindElement(addLanguageTextBox).SendKeys(language);
+            driver.FindElement(addLanguageLevelDropDown).SendKeys(level);
+        }
+        public void CancelFunction()
+        {
+            driver.FindElement(cancelButton).Click();
+        }
+
+        public void CancelAssertion()
+        {
+            driver.FindElement(languageTab).Click();
+        }
+        public void EnterOnlyLnaguageORLevel( string language,string level)
+        {
+            driver.FindElement(addNewButton).Click();
+            driver.FindElement(addLanguageTextBox).SendKeys(language);
+            driver.FindElement(addLanguageLevelDropDown).SendKeys(level);
+            driver.FindElement(addButton).Click();
+        }
+        public string EnterOnlyLanguageLevelAssertion()
+        {
+            Thread.Sleep(2000);
+            WaitHelpers.WaitToBeVisible(driver, "XPath", "//div[@class='ns-box-inner']", 50);
+            string notificationForOnlyEnteringLanguage1 = driver.FindElement(notificationForOnlyEnteringLanguage).Text;
+            return notificationForOnlyEnteringLanguage1;
         }
 
     }
