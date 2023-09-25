@@ -11,14 +11,11 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
     [Binding]
     public class SkillsFeaturesStepDefinitions :CommonDriver
     {
-        
         ProfileHomePage profileHomePageObj;
         SkillsTabPage skillsTabPageObj;
 
-        public SkillsFeaturesStepDefinitions(IWebDriver driver) 
-        {
-            this.driver = driver;
-        }
+        public SkillsFeaturesStepDefinitions(IWebDriver driver):base(driver)
+        { }
 
         [Given(@"I navigate to Profile Skills Page")]
         public void GivenINavigateToProfileSkillsPage()
@@ -71,7 +68,7 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
         [When(@"I Adding /Updating existing '([^']*)' and '([^']*)' on existing records")]
         public void WhenIAddingUpdatingExistingAndOnExistingRecords(string skill, string level)
         {
-            skillsTabPageObj = new SkillsTabPage(driver);
+            skillsTabPageObj = new SkillsTabPage(driver);   
             skillsTabPageObj.UpdateSkill(skill,level);
         }
 

@@ -16,11 +16,9 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
         ProfileHomePage profileHomePageObj;
         LanguagesTabPage languageTabObj;
 
-        public LanguageFeaturesStepDefinitions(IWebDriver driver) 
-        { 
-            this.driver = driver;
-        }
-        
+        public LanguageFeaturesStepDefinitions(IWebDriver driver):base(driver) { }
+       
+
         [Given(@"I logged in to ProjectMars successfully")]
         public void GivenILoggedInToProjectMarsSuccessfully()
         {
@@ -143,14 +141,6 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
             Console.WriteLine(p0);
             Assert.That(actualNotificationMessage == p0, "Unsuccessful");
         }
-
-
-
-
-
-
-
-
 
     }
 }

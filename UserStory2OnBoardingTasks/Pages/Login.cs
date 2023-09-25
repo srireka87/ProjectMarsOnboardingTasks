@@ -11,32 +11,30 @@ namespace UserStory2OnBoardingTasks.Pages
 {
    public class Login:CommonDriver
     {
-       public Login(IWebDriver driver)
+        public Login(IWebDriver driver) :base(driver) 
         {
-            this.driver = driver;
-        } 
-        
-         By signInButton = By.XPath("//*[@id=\"home\"]/div/div/div[1]/div/a");
-         By emailAddressTextbox = By.Name("email");
-         By passwordTextbox = By.Name("password");
-         By rememberMeCheckbox = By.Name("rememberDetails");
-         By loginButton = By.XPath("/html/body/div[2]/div/div/div[1]/div/div[4]/button");
-         By hiSrireka = By.XPath("//body/div[@id='account-profile-section']/div[1]/div[1]/div[2]/div[1]/span[1]");
-        
+        }
+        private IWebElement SignInButton => driver.FindElement(By.XPath("//*[@id=\"home\"]/div/div/div[1]/div/a"));
+        private IWebElement EmailAddressTextbox => driver.FindElement(By.Name("email"));
+        private IWebElement PasswordTextbox => driver.FindElement(By.Name("password"));
+        private IWebElement RememberMeCheckbox => driver.FindElement(By.Name("rememberDetails"));
+        private IWebElement LoginButton => driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[4]/button"));
+        private IWebElement HiSrireka => driver.FindElement(By.XPath("//body/div[@id='account-profile-section']/div[1]/div[1]/div[2]/div[1]/span[1]"));
         public void LoginFunction(string email,string password)
         {
-            driver.FindElement(signInButton).Click();
-            driver.FindElement(emailAddressTextbox).SendKeys(email);
-            driver.FindElement(passwordTextbox).SendKeys(password);
-            driver.FindElement(rememberMeCheckbox).Click();
-            driver.FindElement(loginButton).Click();
+            SignInButton.Click();
+            EmailAddressTextbox.SendKeys(email);
+            PasswordTextbox.SendKeys(password);
+            RememberMeCheckbox.Click();
+            LoginButton.Click();
+          
         }
         public void LoginAssertion()
 
         {
             Thread.Sleep(4000);
             WaitHelpers.WaitToBeVisible(driver, "XPath", "//body/div[@id='account-profile-section']/div[1]/div[1]/div[2]/div[1]/span[1]",20);
-            string actualUserName =driver.FindElement(hiSrireka).Text;
+            string actualUserName =HiSrireka.Text;
             Assert.That(actualUserName =="Hi Srireka","Login Unsuccessful");
             Console.Out.WriteLine(actualUserName);
         }

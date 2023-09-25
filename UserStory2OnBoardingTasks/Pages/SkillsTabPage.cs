@@ -11,56 +11,57 @@ namespace UserStory2OnBoardingTasks.Pages
     public class SkillsTabPage:CommonDriver
     {
 
-        public SkillsTabPage(IWebDriver driver) 
+        public SkillsTabPage(IWebDriver driver) : base(driver)
         {
-            this.driver = driver;
+            
         }
 
         //Adding New Skill
-        By addNewButton = By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/thead/tr/th[3]/div");
-        By addSkillTextBox = By.XPath("//input[@placeholder='Add Skill']");
-        By addSkillLevelDropDown = By.TagName("select");
-        By addButton = By.XPath("//input[@value='Add']");
-        By actualSkill = By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[1]");
-        By actualSkillLevel = By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[2]");
+        private IWebElement AddNewButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/thead/tr/th[3]/div"));
+        private IWebElement AddSkillTextBox => driver.FindElement(By.XPath("//input[@placeholder='Add Skill']"));
+        private IWebElement AddSkillLevelDropDown => driver.FindElement(By.TagName("select"));
+        private IWebElement AddButton => driver.FindElement(By.XPath("//input[@value='Add']"));
+        private IWebElement ActualSkill => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));
+        private IWebElement ActualSkillLevel =>driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[2]"));
 
         //Update Skill
-        By updateIcon = By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[3]/span[1]/i");
-        By updateSkillTextBox = By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td/div/div[1]/input");
-        By updateSkillLevelDropDown = By.TagName("select");
-        By updateButton = By.XPath(" //*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td/div/span/input[1]");                                   
-        By actualUpdatedSkill = By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[1]");
-        By actualUpdatedSkillLevel = By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[2]");
+       private IWebElement UpdateIcon => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[3]/span[1]/i"));
+        private IWebElement UpdateSkillTextBox => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td/div/div[1]/input"));
+        private IWebElement UpdateSkillLevelDropDown => driver.FindElement(By.TagName("select"));
+        private IWebElement UpdateButton => driver.FindElement(By.XPath(" //*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td/div/span/input[1]"));                                   
+        private IWebElement ActualUpdatedSkill => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[1]"));
+        private IWebElement ActualUpdatedSkillLevel => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[2]"));
        
         //Add &Updating the same Language PopUpMsg
-        By actualPopUpMsg = By.XPath("//div[@class='ns-box-inner']");
+        private IWebElement ActualPopUpMsg => driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
 
-        By deleteIcon = By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[last()]/span[2]/i");
-        By actualPopUpDeleteMsg = By.XPath("//div[@class='ns-box-inner']");
+        private IWebElement DeleteIcon => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[last()]/span[2]/i"));
+        private IWebElement ActualPopUpDeleteMsg => driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
 
-        By cancelButton = By.XPath("//input[@value='Cancel']");
-        By skillsTab = By.XPath("//a[contains(text(),'Skills')]");
+        private IWebElement CancelButton => driver.FindElement(By.XPath("//input[@value='Cancel']"));
+        private IWebElement SkillsTab => driver.FindElement(By.XPath("//a[contains(text(),'Skills')]"));
 
-        By notificationForOnlyEnteringSkill = By.XPath("//div[@class='ns-box-inner']");
+        private IWebElement NotificationForOnlyEnteringSkill => driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
 
         public void AddNewSkill(string skill, string level)
         { 
-            driver.FindElement(addNewButton).Click();
-            driver.FindElement(addSkillTextBox).SendKeys(skill);
-            driver.FindElement(addSkillLevelDropDown).SendKeys(level);
-            driver.FindElement(addButton).Click();
+            
+            AddNewButton.Click();
+            AddSkillTextBox.SendKeys(skill);
+            AddSkillLevelDropDown.SendKeys(level);
+            AddButton.Click();
         }
         public string GetActualSkillAssertion()
         {
             WaitHelpers.WaitToBeVisible(driver, "XPath","//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[1]",7);
-            string actualSkill1 = driver.FindElement(actualSkill).Text;
+            string actualSkill1 = ActualSkill.Text;
             Console.WriteLine(actualSkill1);
             return actualSkill1;
         }
         public string GetActualSkillLevelAssertion()
         {
             WaitHelpers.WaitToBeVisible(driver, "XPath","//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[2]",7);
-            string actualSkillLevel1 = driver.FindElement(actualSkillLevel).Text;
+            string actualSkillLevel1 =ActualSkillLevel.Text;
             Console.WriteLine(actualSkillLevel1 );
             return actualSkillLevel1;
         }
@@ -68,72 +69,72 @@ namespace UserStory2OnBoardingTasks.Pages
         {
 
             Thread.Sleep(5000);
-            driver.FindElement(updateIcon).Click();
-            driver.FindElement(updateSkillTextBox).Clear();
-            driver.FindElement(updateSkillTextBox).SendKeys(updateSkill);
-            driver.FindElement(updateSkillLevelDropDown).Click();
-            driver.FindElement(updateSkillLevelDropDown).SendKeys(updateSkillLevel);
-            driver.FindElement(updateButton).Click();
+            UpdateIcon.Click();
+            UpdateSkillTextBox.Clear();
+            UpdateSkillTextBox.SendKeys(updateSkill);
+            UpdateSkillLevelDropDown.Click();
+            UpdateSkillLevelDropDown.SendKeys(updateSkillLevel);
+            UpdateButton.Click();
         }
         public string ActualUpdateSkillAssertion()
         {
             Thread.Sleep(2000);                                               
             WaitHelpers.WaitToBeVisible(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[1]", 50);
-            string actualUpdatedSkill1 = driver.FindElement(actualUpdatedSkill).Text;
+            string actualUpdatedSkill1 = ActualUpdatedSkill.Text;
             return actualUpdatedSkill1;
         }
         public string ActualUpdateSkillLevelAssertion()
         {
             Thread.Sleep(2000);
             WaitHelpers.WaitToBeVisible(driver, "XPath", "//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[last()]/tr/td[2]",50);
-            string actualUpdatedSkillLevel1 = driver.FindElement(actualUpdatedSkillLevel).Text;
+            string actualUpdatedSkillLevel1 = ActualUpdatedSkillLevel.Text;
             return actualUpdatedSkillLevel1;
         }
         public string ExistingSkillLevelAssertion()
         {
             Thread.Sleep(2000);
             WaitHelpers.WaitToBeVisible(driver, "XPath", "//div[@class='ns-box-inner']", 40);
-            string actualPopUpMsg1 = driver.FindElement(actualPopUpMsg).Text;
+            string actualPopUpMsg1 = ActualPopUpMsg.Text;
             return actualPopUpMsg1;
         }
         public void DeleteSkills()
         {
             Thread.Sleep(4000);
-            driver.FindElement(deleteIcon).Click();
+            DeleteIcon.Click();
         }
         public string DeleteSkillsAssertion()
         {
             Thread.Sleep(4000);
             WaitHelpers.WaitToBeVisible(driver, "XPath", "//div[@class='ns-box-inner']",70);
-            string actualPopUpDeleteMsg1 = driver.FindElement(actualPopUpMsg).Text;
+            string actualPopUpDeleteMsg1 = ActualPopUpMsg.Text;
             return actualPopUpDeleteMsg1;
         }
         public void CancelSkills(string language, string level)
         {
-            driver.FindElement(addNewButton).Click();
-            driver.FindElement(addSkillTextBox).SendKeys(language);
-            driver.FindElement(addSkillLevelDropDown).SendKeys(level);
+            AddNewButton.Click();
+            AddSkillTextBox.SendKeys(language);
+            AddSkillLevelDropDown.SendKeys(level);
         }
         public void CancelFunction()
         {
-            driver.FindElement(cancelButton).Click();
+            CancelButton.Click();
         }
         public void CancelAssertion()
         {
-            driver.FindElement(skillsTab).Click();
+            SkillsTab.Click();
         }
         public void EnterOnlySkillORLevel(string skill, string level)
         {
-            driver.FindElement(addNewButton).Click();
-            driver.FindElement(addSkillTextBox).SendKeys(skill);
-            driver.FindElement(addSkillLevelDropDown).SendKeys(level);
-            driver.FindElement(addButton).Click();
+            AddNewButton.Click();
+            AddSkillTextBox.SendKeys(skill);
+            AddSkillLevelDropDown.SendKeys(level);
+            AddButton.Click();
         }
         public string EnterOnlySkillLevelAssertion()
         {
             Thread.Sleep(2000);
             WaitHelpers.WaitToBeVisible(driver, "XPath", "//div[@class='ns-box-inner']", 50);
-            string notificationForOnlyEnteringSkill1 = driver.FindElement(notificationForOnlyEnteringSkill).Text;
+            string notificationForOnlyEnteringSkill1 = NotificationForOnlyEnteringSkill.Text;
             return notificationForOnlyEnteringSkill1;
         }
 

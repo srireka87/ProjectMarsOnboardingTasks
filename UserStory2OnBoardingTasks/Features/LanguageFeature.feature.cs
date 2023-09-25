@@ -77,7 +77,6 @@ namespace UserStory2OnBoardingTasks.Features
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("AddNew Language with Valid Credentials")]
         [NUnit.Framework.CategoryAttribute("AddingNewLanguages")]
-        [NUnit.Framework.CategoryAttribute("order(1)")]
         [NUnit.Framework.TestCaseAttribute("French", "Basic", null)]
         [NUnit.Framework.TestCaseAttribute("Spanish #$#$3", "Fluent", null)]
         [NUnit.Framework.TestCaseAttribute("Japanese & English", "Native/Bilingual", null)]
@@ -85,8 +84,7 @@ namespace UserStory2OnBoardingTasks.Features
         public void AddNewLanguageWithValidCredentials(string addLanguage, string languageLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "AddingNewLanguages",
-                    "order(1)"};
+                    "AddingNewLanguages"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -124,7 +122,6 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Updating Language with Valid credentials in Profile")]
-        [NUnit.Framework.CategoryAttribute("order(2)")]
         [NUnit.Framework.CategoryAttribute("UpdateLanguages")]
         [NUnit.Framework.TestCaseAttribute("English", "Fluent", "Persian", "Basic", null)]
         [NUnit.Framework.TestCaseAttribute("@#423SFssfUpdating", "Conversational", "Sindhi & Marathi", "Fluent", null)]
@@ -132,7 +129,6 @@ this.ScenarioInitialize(scenarioInfo);
         public void UpdatingLanguageWithValidCredentialsInProfile(string updateLanguage, string updateLanguageLevel, string newLanguage, string newLanguageLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "order(2)",
                     "UpdateLanguages"};
             if ((exampleTags != null))
             {
@@ -176,7 +172,6 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Adding & Updating  the ExistingLanguage")]
-        [NUnit.Framework.CategoryAttribute("order(3)")]
         [NUnit.Framework.CategoryAttribute("Adding/UpdatingExistingLanguages")]
         [NUnit.Framework.TestCaseAttribute("French", "Basic", null)]
         [NUnit.Framework.TestCaseAttribute("Mandarin234", "Fluent", null)]
@@ -184,7 +179,6 @@ this.ScenarioInitialize(scenarioInfo);
         public void AddingUpdatingTheExistingLanguage(string sameLanguage, string sameLanguageLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "order(3)",
                     "Adding/UpdatingExistingLanguages"};
             if ((exampleTags != null))
             {
@@ -227,7 +221,6 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Deleting the Language and Language Level")]
-        [NUnit.Framework.CategoryAttribute("order(4)")]
         [NUnit.Framework.CategoryAttribute("DeletingLanguages")]
         [NUnit.Framework.TestCaseAttribute("Mandarin", "Basic", null)]
         [NUnit.Framework.TestCaseAttribute("Gujarathi", "Fluent", null)]
@@ -235,7 +228,6 @@ this.ScenarioInitialize(scenarioInfo);
         public void DeletingTheLanguageAndLanguageLevel(string language, string languageLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "order(4)",
                     "DeletingLanguages"};
             if ((exampleTags != null))
             {
@@ -278,14 +270,12 @@ testRunner.Then(string.Format("the records should be deleted and message display
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Cancel the Language when AddNew and Update")]
-        [NUnit.Framework.CategoryAttribute("order(5)")]
         [NUnit.Framework.CategoryAttribute("CancelLanguage")]
         [NUnit.Framework.TestCaseAttribute("English", "Fluent", null)]
         [NUnit.Framework.TestCaseAttribute("Arabic", "Basic", null)]
         public void CancelTheLanguageWhenAddNewAndUpdate(string language, string languageLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "order(5)",
                     "CancelLanguage"};
             if ((exampleTags != null))
             {
@@ -327,7 +317,6 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("AddNew Language with INVALID Credentials")]
-        [NUnit.Framework.CategoryAttribute("order(6)")]
         [NUnit.Framework.CategoryAttribute("EnteringOnlyLanguageORLevel")]
         [NUnit.Framework.TestCaseAttribute("Arabic", "", null)]
         [NUnit.Framework.TestCaseAttribute("", "Fluent", null)]
@@ -335,7 +324,6 @@ this.ScenarioInitialize(scenarioInfo);
         public void AddNewLanguageWithINVALIDCredentials(string language, string languageLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "order(6)",
                     "EnteringOnlyLanguageORLevel"};
             if ((exampleTags != null))
             {
