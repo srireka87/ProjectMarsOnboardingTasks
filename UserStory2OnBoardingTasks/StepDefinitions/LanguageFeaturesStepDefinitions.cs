@@ -9,21 +9,19 @@ using UserStory2OnBoardingTasks.Utilities;
 
 namespace UserStory2OnBoardingTasks.StepDefinitions
 {
+
     [Binding]
     public class LanguageFeaturesStepDefinitions:CommonDriver
     {
-        Login loginPageObj;
-        ProfileHomePage profileHomePageObj;
-        LanguagesTabPage languageTabObj;
-
-        public LanguageFeaturesStepDefinitions(IWebDriver driver):base(driver) { }
-       
+           Login loginPageObj = new Login();
+           ProfileHomePage profileHomePageObj = new ProfileHomePage();
+           LanguagesTabPage languageTabObj = new LanguagesTabPage();
+      
 
         [Given(@"I logged in to ProjectMars successfully")]
         public void GivenILoggedInToProjectMarsSuccessfully()
         {
-            loginPageObj = new Login(driver);
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
             loginPageObj.LoginFunction("srireka87@gmail.com","Rosesri@23");
             loginPageObj.LoginAssertion();
         }
@@ -31,15 +29,14 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
         [Given(@"I navigate to Profile Language Page")]
         public void GivenINavigateToProfileLanguagePage()
         {
-            profileHomePageObj = new ProfileHomePage(driver);
+            
             profileHomePageObj.GoToProfileLangauges();
         }
-
+        
         [When(@"I '([^']*)' and '([^']*)'")]
         public void WhenIAnd(string language, string level)
         {
-            languageTabObj = new LanguagesTabPage(driver);
-            languageTabObj.AddNewLanguage(language, level);
+            languageTabObj.AddNewLanguage(language,level);
         }
 
         [Then(@"the'([^']*)'and '([^']*)' details should be created successfully")]
@@ -55,7 +52,6 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
         [When(@"I Update '([^']*)' and '([^']*)' on existing records")]
         public void WhenIUpdateAndOnExistingRecords(string updateLanguage, string updateLangugeLevel)
         {
-            languageTabObj =new LanguagesTabPage(driver);
             languageTabObj.UpdateLanguages(updateLanguage, updateLangugeLevel);
 
         }
@@ -73,7 +69,6 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
         [When(@"I Updating '([^']*)' and '([^']*)' on existing records")]
         public void WhenIUpdatingAndOnExistingRecords(string sameLanguage, string sameLanguageLevel)
         {
-            languageTabObj = new LanguagesTabPage(driver);
             languageTabObj.UpdateLanguages(sameLanguage, sameLanguageLevel);
         }
           
@@ -87,7 +82,6 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
         [Given(@"Adding '([^']*)' and '([^']*)'")]
         public void GivenAddingAnd(string language,string level)
         {
-            languageTabObj = new LanguagesTabPage(driver);
             languageTabObj.AddNewLanguage(language,level);
 
         }
@@ -95,7 +89,6 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
         [When(@"I click Delete Button for the '([^']*)'")]
         public void WhenIClickDeleteButtonForThe(string language)
         {
-            languageTabObj = new LanguagesTabPage(driver);
             languageTabObj.DeleteLanguage();
         }
 
@@ -109,7 +102,6 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
         [When(@"I adding'([^']*)' and '([^']*)'")]
         public void WhenIAddingAnd(string language, string level)
         {
-            languageTabObj = new LanguagesTabPage(driver);
             languageTabObj.CancelLanguage(language, level);
         }
 
@@ -128,7 +120,6 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
         [When(@"I  enter only '([^']*)' OR '([^']*)'")]
         public void WhenIEnterOnlyOR(string language, string level)
         {
-            languageTabObj = new LanguagesTabPage(driver);
             languageTabObj.EnterOnlyLnaguageORLevel(language,level);
 
         }
@@ -142,5 +133,24 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
             Assert.That(actualNotificationMessage == p0, "Unsuccessful");
         }
 
+        [When(@"Delete all records if exists")]
+        public void WhenDeleteAllRecordsIfExists()
+        {
+            languageTabObj.ResetTheState();
+            
+        }
+        [Then(@"I verify that all records been deleted\.")]
+        public void ThenIVerifyThatAllRecordsBeenDeleted_()
+        {
+            languageTabObj.DeleteAllRecordsAssertion();
+            
+        }
+
+
+
+
+
+
     }
+
 }

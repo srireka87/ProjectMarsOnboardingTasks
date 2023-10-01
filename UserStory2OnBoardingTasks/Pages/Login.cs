@@ -11,9 +11,7 @@ namespace UserStory2OnBoardingTasks.Pages
 {
    public class Login:CommonDriver
     {
-        public Login(IWebDriver driver) :base(driver) 
-        {
-        }
+       
         private IWebElement SignInButton => driver.FindElement(By.XPath("//*[@id=\"home\"]/div/div/div[1]/div/a"));
         private IWebElement EmailAddressTextbox => driver.FindElement(By.Name("email"));
         private IWebElement PasswordTextbox => driver.FindElement(By.Name("password"));

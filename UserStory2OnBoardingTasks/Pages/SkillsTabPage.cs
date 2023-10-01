@@ -10,13 +10,7 @@ namespace UserStory2OnBoardingTasks.Pages
 {
     public class SkillsTabPage:CommonDriver
     {
-
-        public SkillsTabPage(IWebDriver driver) : base(driver)
-        {
-            
-        }
-
-        //Adding New Skill
+       //Adding New Skill
         private IWebElement AddNewButton => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/thead/tr/th[3]/div"));
         private IWebElement AddSkillTextBox => driver.FindElement(By.XPath("//input[@placeholder='Add Skill']"));
         private IWebElement AddSkillLevelDropDown => driver.FindElement(By.TagName("select"));
@@ -42,10 +36,29 @@ namespace UserStory2OnBoardingTasks.Pages
         private IWebElement SkillsTab => driver.FindElement(By.XPath("//a[contains(text(),'Skills')]"));
 
         private IWebElement NotificationForOnlyEnteringSkill => driver.FindElement(By.XPath("//div[@class='ns-box-inner']"));
+        private IWebElement SkillsTable => driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table"));
+        private IList<IWebElement> SkillsTableRows => SkillsTable.FindElements(By.TagName("tr"));
+       // private IList<IWebElement> SkillsTableRows => SkillsTable.FindElements(By.XPath("//*[@id=\"account - profile - section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody/tr"));
 
         public void AddNewSkill(string skill, string level)
-        { 
-            
+        {
+            if (SkillsTableRows.Count > 0)
+            {
+
+                Thread.Sleep(2000);
+                try
+                {
+                    for (int i = 1; i < SkillsTableRows.Count; i++)
+                    {
+                        IWebElement row = SkillsTableRows[i];
+                        IWebElement DeleteButton = row.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[3]/div/div[2]/div/table/tbody[1]/tr/td[3]/span[2]/i"));
+                        DeleteButton.Click();
+                    }
+                }
+                catch (StaleElementReferenceException) { }
+            }
+
+            Thread.Sleep(3000);
             AddNewButton.Click();
             AddSkillTextBox.SendKeys(skill);
             AddSkillLevelDropDown.SendKeys(level);

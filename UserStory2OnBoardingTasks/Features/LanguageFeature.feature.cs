@@ -78,7 +78,7 @@ namespace UserStory2OnBoardingTasks.Features
         [NUnit.Framework.DescriptionAttribute("AddNew Language with Valid Credentials")]
         [NUnit.Framework.CategoryAttribute("AddingNewLanguages")]
         [NUnit.Framework.TestCaseAttribute("French", "Basic", null)]
-        [NUnit.Framework.TestCaseAttribute("Spanish #$#$3", "Fluent", null)]
+        [NUnit.Framework.TestCaseAttribute("PERSIAN AND URUDHU", "Basic", null)]
         [NUnit.Framework.TestCaseAttribute("Japanese & English", "Native/Bilingual", null)]
         [NUnit.Framework.TestCaseAttribute("Hi I am doing Test Analyst Program and implementing SPECFLOW and BDD", "Conversational", null)]
         public void AddNewLanguageWithValidCredentials(string addLanguage, string languageLevel, string[] exampleTags)
@@ -94,7 +94,7 @@ namespace UserStory2OnBoardingTasks.Features
             argumentsOfScenario.Add("AddLanguage", addLanguage);
             argumentsOfScenario.Add("Language Level", languageLevel);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("AddNew Language with Valid Credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 9
+#line 8
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -104,17 +104,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 10
+#line 9
  testRunner.Given("I logged in to ProjectMars successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 11
+#line 10
  testRunner.And("I navigate to Profile Language Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 12
+#line 11
  testRunner.When(string.Format("I \'{0}\' and \'{1}\'", addLanguage, languageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 13
- testRunner.Then(string.Format("the\'{0}\'and \'{1}\' details should be created successfully", addLanguage, languageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 12
+    testRunner.Then(string.Format("the\'{0}\'and \'{1}\' details should be created successfully", addLanguage, languageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -355,6 +355,41 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 82
  testRunner.Then("notification display as \'Please enter language and level\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Deleting all the records")]
+        [NUnit.Framework.CategoryAttribute("ResettingTheState_DeletingAllRecords")]
+        public void DeletingAllTheRecords()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "ResettingTheState_DeletingAllRecords"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deleting all the records", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 92
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 93
+ testRunner.Given("I logged in to ProjectMars successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 94
+ testRunner.And("I navigate to Profile Language Page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 95
+ testRunner.When("Delete all records if exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 96
+ testRunner.Then("I verify that all records been deleted.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

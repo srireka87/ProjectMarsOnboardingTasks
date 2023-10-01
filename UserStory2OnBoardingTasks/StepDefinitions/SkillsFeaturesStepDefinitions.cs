@@ -8,26 +8,33 @@ using UserStory2OnBoardingTasks.Utilities;
 
 namespace UserStory2OnBoardingTasks.StepDefinitions
 {
-    [Binding]
+   // [Binding]
     public class SkillsFeaturesStepDefinitions :CommonDriver
     {
-        ProfileHomePage profileHomePageObj;
-        SkillsTabPage skillsTabPageObj;
+        ProfileHomePage profileHomePageObj = new ProfileHomePage();
+        SkillsTabPage skillsTabPageObj=new SkillsTabPage();
+        Login loginPageObj = new Login();
 
-        public SkillsFeaturesStepDefinitions(IWebDriver driver):base(driver)
-        { }
+
+        [Given(@"I logged in to ProjectMars successfully")]
+        public void GivenILoggedInToProjectMarsSuccessfully()
+        {
+            Thread.Sleep(2000);
+            loginPageObj.LoginFunction("srireka87@gmail.com", "Rosesri@23");
+            loginPageObj.LoginAssertion();
+        }
 
         [Given(@"I navigate to Profile Skills Page")]
         public void GivenINavigateToProfileSkillsPage()
         {
-            profileHomePageObj = new ProfileHomePage(driver);
+           
             profileHomePageObj.GoToProfileSkills();
         }
 
         [When(@"I '([^']*)'and '([^']*)'")]
         public void WhenIAnd(string skill, string level)
         {
-            skillsTabPageObj=new SkillsTabPage(driver);
+            
             skillsTabPageObj.AddNewSkill(skill, level);
         }
 
@@ -44,7 +51,7 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
         [When(@"Updating '([^']*)' and '([^']*)' on existing records")]
         public void WhenUpdatingAndOnExistingRecords(string updateSkill, string updateSkillLevel)
         {
-            skillsTabPageObj = new SkillsTabPage(driver);
+           
             skillsTabPageObj.UpdateSkill(updateSkill, updateSkillLevel);
         }
 
@@ -61,14 +68,14 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
         [Given(@"adding '([^']*)' and '([^']*)'")]
         public void GivenAddingAnd(string skill, string level)
         {
-            skillsTabPageObj = new SkillsTabPage(driver);
+            
             skillsTabPageObj.AddNewSkill(skill, level);
         }
 
         [When(@"I Adding /Updating existing '([^']*)' and '([^']*)' on existing records")]
         public void WhenIAddingUpdatingExistingAndOnExistingRecords(string skill, string level)
         {
-            skillsTabPageObj = new SkillsTabPage(driver);   
+               
             skillsTabPageObj.UpdateSkill(skill,level);
         }
 
@@ -84,14 +91,14 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
         [Given(@"I Add '([^']*)' and '([^']*)'")]
         public void GivenIAddAnd(string skill, string level)
         {
-            skillsTabPageObj = new SkillsTabPage(driver);
+           
             skillsTabPageObj.AddNewSkill(skill, level);
         }
 
         [When(@"I Delete for the '([^']*)'")]
         public void WhenIDeleteForThe(string skill)
         {
-            skillsTabPageObj = new SkillsTabPage(driver);
+           
            skillsTabPageObj.DeleteSkills();
         }
 
@@ -105,7 +112,7 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
         [Given(@"I adding '([^']*)' and '([^']*)'")]
         public void GivenIAddingAnd(string skill, string level)
         {
-            skillsTabPageObj = new SkillsTabPage(driver);
+            
             skillsTabPageObj.CancelSkills(skill, level);
         }
 
@@ -124,7 +131,7 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
         [When(@"I enter only '([^']*)' OR '([^']*)'")]
         public void WhenIEnterOnlyOR(string skill, string level)
         {
-            skillsTabPageObj = new SkillsTabPage(driver);
+           
             skillsTabPageObj.EnterOnlySkillORLevel(skill, level);
         }
 

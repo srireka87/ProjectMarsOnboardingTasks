@@ -5,18 +5,18 @@ I want to Add,Update and Delete profile Langauage details
 So that I can show people seeking what languags I hold 
 
 @AddingNewLanguages
-
 Scenario Outline:AddNew Language with Valid Credentials
 	Given I logged in to ProjectMars successfully
 	And I navigate to Profile Language Page
 	When I '<AddLanguage>' and '<Language Level>'
-	Then the'<AddLanguage>'and '<Language Level>' details should be created successfully
+    Then the'<AddLanguage>'and '<Language Level>' details should be created successfully
+	
 	Examples:
-	| AddLanguage                                                            | Language Level   |
-	| French                                                                 | Basic            |
-	| Spanish #$#$3                                                          | Fluent           |
-	| Japanese & English                                                     | Native/Bilingual |
-	| Hi I am doing Test Analyst Program and implementing SPECFLOW and BDD   | Conversational   |
+	| AddLanguage                                                          | Language Level   |
+	| French                                                               | Basic            |
+	| PERSIAN AND URUDHU                                                   | Basic            |
+	| Japanese & English                                                   | Native/Bilingual |
+	| Hi I am doing Test Analyst Program and implementing SPECFLOW and BDD | Conversational   |
 	
 
 @UpdateLanguages
@@ -87,4 +87,16 @@ Scenario Outline:AddNew Language with INVALID Credentials
 	|          | Fluent         |
 	| Bengali  |                |  
 
-    
+
+@ResettingTheState_DeletingAllRecords
+ Scenario Outline:Deleting all the records
+ Given I logged in to ProjectMars successfully
+ And I navigate to Profile Language Page
+ When Delete all records if exists
+ Then I verify that all records been deleted.
+ 
+	
+
+ 
+
+
