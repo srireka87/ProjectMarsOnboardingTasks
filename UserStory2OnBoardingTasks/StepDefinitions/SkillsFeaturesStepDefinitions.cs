@@ -8,12 +8,19 @@ using UserStory2OnBoardingTasks.Utilities;
 
 namespace UserStory2OnBoardingTasks.StepDefinitions
 {
-   // [Binding]
+    [Binding]
     public class SkillsFeaturesStepDefinitions :CommonDriver
     {
-        ProfileHomePage profileHomePageObj = new ProfileHomePage();
-        SkillsTabPage skillsTabPageObj=new SkillsTabPage();
-        Login loginPageObj = new Login();
+        Login loginPageObj;
+        SkillsTabPage skillsTabPageObj;
+        ProfileHomePage profileHomePageObj;
+
+        public SkillsFeaturesStepDefinitions()
+        {
+            profileHomePageObj = new ProfileHomePage();
+            skillsTabPageObj = new SkillsTabPage();
+            loginPageObj = new Login();
+        }
 
 
         [Given(@"I logged in to ProjectMars successfully")]

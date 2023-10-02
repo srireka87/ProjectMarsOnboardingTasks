@@ -10,14 +10,20 @@ using UserStory2OnBoardingTasks.Utilities;
 namespace UserStory2OnBoardingTasks.StepDefinitions
 {
 
-    [Binding]
+    //[Binding]
     public class LanguageFeaturesStepDefinitions:CommonDriver
     {
-           Login loginPageObj = new Login();
-           ProfileHomePage profileHomePageObj = new ProfileHomePage();
-           LanguagesTabPage languageTabObj = new LanguagesTabPage();
-      
+        Login loginPageObj;
+        ProfileHomePage profileHomePageObj;
+        LanguagesTabPage languageTabObj;
 
+        public LanguageFeaturesStepDefinitions()
+        {
+           loginPageObj = new Login();
+           profileHomePageObj = new ProfileHomePage();
+           languageTabObj = new LanguagesTabPage();
+        }
+      
         [Given(@"I logged in to ProjectMars successfully")]
         public void GivenILoggedInToProjectMarsSuccessfully()
         {
