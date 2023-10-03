@@ -10,7 +10,7 @@ using UserStory2OnBoardingTasks.Utilities;
 namespace UserStory2OnBoardingTasks.StepDefinitions
 {
 
-   // [Binding]
+   //[Binding]
     public class LanguageFeaturesStepDefinitions:CommonDriver
     {
         Login loginPageObj;
@@ -73,11 +73,12 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
             Assert.That(actualUpdatedLanguageLevel == updateLanguageLevel, "Updated Language Level is Unsuccessful");
         }
 
-        [When(@"I Updating '([^']*)' and '([^']*)' on existing records")]
-        public void WhenIUpdatingAndOnExistingRecords(string sameLanguage, string sameLanguageLevel)
+        [When(@"I Updating '([^']*)' and '([^']*)'")]
+        public void WhenIUpdatingAnd(string sameLanguage , string sameLanguageLevel)
         {
             languageTabObj.UpdateLanguages(sameLanguage, sameLanguageLevel);
         }
+
           
         [Then(@"pop up message display as '([^']*)'")]
         public void ThenPopUpMessageDisplayAs(string p0)

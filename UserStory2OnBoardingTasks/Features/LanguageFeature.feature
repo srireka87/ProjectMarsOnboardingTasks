@@ -38,7 +38,7 @@ Scenario Outline: Adding & Updating  the ExistingLanguage
 	Given I logged in to ProjectMars successfully
 	And I navigate to Profile Language Page
 	And Adding '<SameLanguage>' and '<SameLanguage Level>'
-	When I Updating '<SameLanguage>' and '<SameLanguage Level>' on existing records
+	When I Updating '<SameLanguage>' and '<SameLanguage Level>' 
 	Then pop up message display as 'This language is already added to your language list.'
 	Examples:
 	| SameLanguage          | SameLanguage Level |

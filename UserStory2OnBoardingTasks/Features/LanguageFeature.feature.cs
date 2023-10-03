@@ -209,7 +209,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And(string.Format("Adding \'{0}\' and \'{1}\'", sameLanguage, sameLanguageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 41
- testRunner.When(string.Format("I Updating \'{0}\' and \'{1}\' on existing records", sameLanguage, sameLanguageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I Updating \'{0}\' and \'{1}\'", sameLanguage, sameLanguageLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 42
  testRunner.Then("pop up message display as \'This language is already added to your language list.\'" +
