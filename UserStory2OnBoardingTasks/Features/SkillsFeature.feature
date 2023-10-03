@@ -25,7 +25,7 @@ Scenario Outline:Updating Skill with Valid credentials in Profile
 	Given I logged in to ProjectMars successfully
 	And I navigate to Profile Skills Page
 	And I Add '<NewSkill>' and '<NewSkill Level>'
-	When Updating '<Update Skill>' and '<Update Level>' on existing records
+	When Updating '<Update Skill>' and '<Update Level>' 
 	Then skills should be updated in '<Update Skill>'and '<Update Level>' successfully
 	Examples:
 	| Update Skill       | Update Level | NewSkill                     | NewSkill Level |

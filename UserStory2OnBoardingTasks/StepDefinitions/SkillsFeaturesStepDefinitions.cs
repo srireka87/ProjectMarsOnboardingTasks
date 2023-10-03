@@ -55,10 +55,9 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
             Assert.That(actualNewSkillLevel == level,"Skill Level is not matching");
         }
 
-        [When(@"Updating '([^']*)' and '([^']*)' on existing records")]
-        public void WhenUpdatingAndOnExistingRecords(string updateSkill, string updateSkillLevel)
+        [When(@"Updating '([^']*)' and '([^']*)'")]
+        public void WhenUpdatingAnd(string updateSkill, string updateSkillLevel)
         {
-           
             skillsTabPageObj.UpdateSkill(updateSkill, updateSkillLevel);
         }
 

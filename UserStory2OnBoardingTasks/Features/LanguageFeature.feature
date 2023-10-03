@@ -24,7 +24,7 @@ Scenario Outline:Updating Language with Valid credentials in Profile
 	Given I logged in to ProjectMars successfully
 	And I navigate to Profile Language Page
 	And Adding '<NewLanguage>' and '<NewLanguage Level>'
-	When I Update '<UpdateLanguage>' and '<UpdateLanguage Level>' on existing records
+	When I Update '<UpdateLanguage>' and '<UpdateLanguage Level>' 
 	Then the record should be updated in '<UpdateLanguage>'and '<UpdateLanguage Level>' successfully
 	Examples:
 	| UpdateLanguage                              | UpdateLanguage Level | NewLanguage          | NewLanguage Level |

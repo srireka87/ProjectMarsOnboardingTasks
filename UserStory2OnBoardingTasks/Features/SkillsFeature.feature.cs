@@ -161,7 +161,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And(string.Format("I Add \'{0}\' and \'{1}\'", newSkill, newSkillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 28
- testRunner.When(string.Format("Updating \'{0}\' and \'{1}\' on existing records", updateSkill, updateLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("Updating \'{0}\' and \'{1}\'", updateSkill, updateLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 29
  testRunner.Then(string.Format("skills should be updated in \'{0}\'and \'{1}\' successfully", updateSkill, updateLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
