@@ -4,7 +4,7 @@ As a ProjectMars User
 I want to Add,Update and Delete profile Langauage details
 So that I can show people seeking what languags I hold 
 
-@AddingNewLanguages
+@Languages_ADD
 Scenario Outline:AddNew Language with Valid Credentials
 	Given I logged in to ProjectMars successfully
 	And I navigate to Profile Language Page
@@ -19,7 +19,7 @@ Scenario Outline:AddNew Language with Valid Credentials
 	| Hi I am doing Test Analyst Program and implementing SPECFLOW and BDD | Conversational   |
 	
 
-@UpdateLanguages
+@Languages_UPDATE
 Scenario Outline:Updating Language with Valid credentials in Profile
 	Given I logged in to ProjectMars successfully
 	And I navigate to Profile Language Page
@@ -33,7 +33,7 @@ Scenario Outline:Updating Language with Valid credentials in Profile
 	| How many??languages##arethereinthe* (world) | Native/Bilingual     | **There are many@@## | Converational     |
 
 
-@Adding/UpdatingExistingLanguages
+@Languages_SAMELANGUAGE_EXISTS
 Scenario Outline: Adding & Updating  the ExistingLanguage
 	Given I logged in to ProjectMars successfully
 	And I navigate to Profile Language Page
@@ -47,7 +47,7 @@ Scenario Outline: Adding & Updating  the ExistingLanguage
 	| update23432Great#%#22 | Conversational     |  
 
 
-@DeletingLanguages
+@Languages_DELETE
 Scenario Outline: Deleting the Language and Language Level
 Given I logged in to ProjectMars successfully
 And I navigate to Profile Language Page
@@ -61,7 +61,7 @@ Examples:
 | Greek     | Native/Bilingual   |
 
 
-@CancelLanguage
+@Language_CANCEL
 Scenario Outline:Cancel the Language when AddNew and Update
 	Given I logged in to ProjectMars successfully
 	And I navigate to Profile Language Page
@@ -74,7 +74,7 @@ Scenario Outline:Cancel the Language when AddNew and Update
 	| Arabic       | Basic	         |
 
 
-@EnteringOnlyLanguageORLevel
+@Languages_INVALID
 Scenario Outline:AddNew Language with INVALID Credentials
 	Given I logged in to ProjectMars successfully
 	And I navigate to Profile Language Page

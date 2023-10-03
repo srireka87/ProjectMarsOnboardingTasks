@@ -76,7 +76,7 @@ namespace UserStory2OnBoardingTasks.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("AddNew Skill with Valid Credentials")]
-        [NUnit.Framework.CategoryAttribute("AddingNewSkills")]
+        [NUnit.Framework.CategoryAttribute("Skills_ADD")]
         [NUnit.Framework.TestCaseAttribute("Cooking", "Expert", null)]
         [NUnit.Framework.TestCaseAttribute("Documentation & Writing", "Beginner", null)]
         [NUnit.Framework.TestCaseAttribute("Graphics3287@$@", "Intermediate", null)]
@@ -84,7 +84,7 @@ namespace UserStory2OnBoardingTasks.Features
         public void AddNewSkillWithValidCredentials(string addSkill, string skillLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "AddingNewSkills"};
+                    "Skills_ADD"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -122,14 +122,14 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Updating Skill with Valid credentials in Profile")]
-        [NUnit.Framework.CategoryAttribute("UpdateSkills")]
+        [NUnit.Framework.CategoryAttribute("Skills_UPDATE")]
         [NUnit.Framework.TestCaseAttribute("Crafting", "Expert", "Music& Audio", "Beginner", null)]
         [NUnit.Framework.TestCaseAttribute("@#423SFssfUpdating", "Beginner", "Fun Life Style and Organiser", "Expert", null)]
         [NUnit.Framework.TestCaseAttribute("Pottery & mosaic", "Intermediate", "Sewing@@##FashionDesingning", "Intermediate", null)]
         public void UpdatingSkillWithValidCredentialsInProfile(string updateSkill, string updateLevel, string newSkill, string newSkillLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "UpdateSkills"};
+                    "Skills_UPDATE"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -172,14 +172,14 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Adding & Updating  the ExistingSkill")]
-        [NUnit.Framework.CategoryAttribute("Adding/UpdatingexistingSkills")]
+        [NUnit.Framework.CategoryAttribute("Skills_SAMESKILL_EXISTS")]
         [NUnit.Framework.TestCaseAttribute("Reading", "Expert", null)]
         [NUnit.Framework.TestCaseAttribute("Cooking", "Intermediate", null)]
         [NUnit.Framework.TestCaseAttribute("@#@#@$^&^*#$#Gardening@#@#@", "Beginner", null)]
         public void AddingUpdatingTheExistingSkill(string skill, string skillLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "Adding/UpdatingexistingSkills"};
+                    "Skills_SAMESKILL_EXISTS"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -209,7 +209,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And(string.Format("I Add \'{0}\' and \'{1}\'", skill, skillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 43
- testRunner.When(string.Format("I Adding /Updating existing \'{0}\' and \'{1}\' on existing records", skill, skillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I Updating same \'{0}\' and \'{1}\'", skill, skillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 44
  testRunner.Then("Popup message display as \'This skill is already added to your skill list.\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -220,13 +220,13 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Deleting the Skill and Skill Level")]
-        [NUnit.Framework.CategoryAttribute("DeletingSkills")]
+        [NUnit.Framework.CategoryAttribute("Skills_DELETE")]
         [NUnit.Framework.TestCaseAttribute("Poetry", "Expert", null)]
         [NUnit.Framework.TestCaseAttribute("Writing documentary", "Beginner", null)]
         public void DeletingTheSkillAndSkillLevel(string skill, string skillLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "DeletingSkills"};
+                    "Skills_DELETE"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -256,7 +256,7 @@ testRunner.And("I navigate to Profile Skills Page", ((string)(null)), ((TechTalk
 testRunner.And(string.Format("I Add \'{0}\' and \'{1}\'", skill, skillLevel), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 57
-testRunner.When(string.Format("I Delete for the \'{0}\'", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When(string.Format("I Delete the \'{0}\'", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 58
 testRunner.Then(string.Format("the record should be deleted and message display as \'{0} has been deleted\'", skill), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -267,13 +267,13 @@ testRunner.Then(string.Format("the record should be deleted and message display 
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Cancel the Skill when AddNew and Update")]
-        [NUnit.Framework.CategoryAttribute("CancelSkill")]
+        [NUnit.Framework.CategoryAttribute("Skill_CANCEL")]
         [NUnit.Framework.TestCaseAttribute("Gardening", "Beginner", null)]
         [NUnit.Framework.TestCaseAttribute("Art & Design", "Basic", null)]
         public void CancelTheSkillWhenAddNewAndUpdate(string skill, string skillLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "CancelSkill"};
+                    "Skill_CANCEL"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -314,14 +314,14 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("AddNew Skill with INVALID Credentials")]
-        [NUnit.Framework.CategoryAttribute("EnteringOnlySkillORSkillLevel")]
+        [NUnit.Framework.CategoryAttribute("Skill_INVALID")]
         [NUnit.Framework.TestCaseAttribute("Hadwriting", "Expert", null)]
         [NUnit.Framework.TestCaseAttribute("", "Intermediate", null)]
         [NUnit.Framework.TestCaseAttribute("Animation", "", null)]
         public void AddNewSkillWithINVALIDCredentials(string skill, string level, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "EnteringOnlySkillORSkillLevel"};
+                    "Skill_INVALID"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));

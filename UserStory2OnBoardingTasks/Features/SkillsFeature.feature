@@ -5,7 +5,7 @@ I want to Add,Update and Delete profile Skills details
 So that I can show people seeking what skills I hold 
 
 
-@AddingNewSkills
+@Skills_ADD
 Scenario Outline:AddNew Skill with Valid Credentials
 	Given I logged in to ProjectMars successfully
 	And I navigate to Profile Skills Page
@@ -20,7 +20,7 @@ Scenario Outline:AddNew Skill with Valid Credentials
 	| Painting is my ##passion$$ and trying 2 improve it@@ | Beginner     |
 
 	
-@UpdateSkills
+@Skills_UPDATE
 Scenario Outline:Updating Skill with Valid credentials in Profile
 	Given I logged in to ProjectMars successfully
 	And I navigate to Profile Skills Page
@@ -35,12 +35,12 @@ Scenario Outline:Updating Skill with Valid credentials in Profile
 
 
 
-@Adding/UpdatingexistingSkills
+@Skills_SAMESKILL_EXISTS
 Scenario Outline: Adding & Updating  the ExistingSkill
 	Given I logged in to ProjectMars successfully
 	And I navigate to Profile Skills Page
 	And I Add '<Skill>' and '<Skill Level>'
-	When I Adding /Updating existing '<Skill>' and '<Skill Level>' on existing records
+	When I Updating same '<Skill>' and '<Skill Level>'
 	Then Popup message display as 'This skill is already added to your skill list.'
 	Examples:
 	| Skill                       | Skill Level   |  
@@ -49,12 +49,12 @@ Scenario Outline: Adding & Updating  the ExistingSkill
 	| @#@#@$^&^*#$#Gardening@#@#@ | Beginner      |
 
 	
-@DeletingSkills
+@Skills_DELETE
 Scenario Outline: Deleting the Skill and Skill Level
 Given I logged in to ProjectMars successfully
 And I navigate to Profile Skills Page
 And I Add '<Skill>' and '<Skill Level>'
-When I Delete for the '<Skill>' 
+When I Delete the '<Skill>' 
 Then the record should be deleted and message display as '<Skill> has been deleted' 
 Examples: 
 | Skill               | Skill Level |
@@ -62,7 +62,7 @@ Examples:
 | Writing documentary | Beginner    |
 
 
-@CancelSkill
+@Skill_CANCEL
 Scenario Outline:Cancel the Skill when AddNew and Update
 	Given I logged in to ProjectMars successfully
 	And I navigate to Profile Skills Page
@@ -74,7 +74,7 @@ Scenario Outline:Cancel the Skill when AddNew and Update
 	| Gardening    | Beginner    |
 	| Art & Design | Basic       |
 
-@EnteringOnlySkillORSkillLevel
+@Skill_INVALID
 Scenario Outline:AddNew Skill with INVALID Credentials
 	Given I logged in to ProjectMars successfully
 	And I navigate to Profile Skills Page

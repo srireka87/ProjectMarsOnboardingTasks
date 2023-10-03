@@ -71,6 +71,8 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
             string actualUpdatedSkillLevel = skillsTabPageObj.ActualUpdateSkillLevelAssertion();
             Assert.That(actualUpdatedSkillLevel == updateSkillLevel, "Updated Skill Level is Unsuccessful");
         }
+
+
         [Given(@"adding '([^']*)' and '([^']*)'")]
         public void GivenAddingAnd(string skill, string level)
         {
@@ -78,19 +80,19 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
             skillsTabPageObj.AddNewSkill(skill, level);
         }
 
-        [When(@"I Adding /Updating existing '([^']*)' and '([^']*)' on existing records")]
-        public void WhenIAddingUpdatingExistingAndOnExistingRecords(string skill, string level)
+        [When(@"I Updating same '([^']*)' and '([^']*)'")]
+        public void WhenIUpdatingSameAnd(string skill, string level)
         {
-               
-            skillsTabPageObj.UpdateSkill(skill,level);
+            skillsTabPageObj.UpdateSkill(skill, level);
         }
+
 
         [Then(@"Popup message display as '([^']*)'")]
         public void ThenPopupMessageDisplayAs(string p0)
         {
             string actualPopUpMessage = skillsTabPageObj.ExistingSkillLevelAssertion();
             Console.WriteLine(actualPopUpMessage);
-            Assert.That(actualPopUpMessage == p0, "Existing skill is unsuccessful");
+            Assert.That(actualPopUpMessage == p0, "Same skill is unsuccessful");
             
         }
 
@@ -101,12 +103,13 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
             skillsTabPageObj.AddNewSkill(skill, level);
         }
 
-        [When(@"I Delete for the '([^']*)'")]
-        public void WhenIDeleteForThe(string skill)
+
+        [When(@"I Delete the '([^']*)'")]
+        public void WhenIDeleteThe(string skill)
         {
-           
-           skillsTabPageObj.DeleteSkills();
+            skillsTabPageObj.DeleteSkills();
         }
+
 
         [Then(@"the record should be deleted and message display as '([^']*)'")]
         public void ThenTheRecordShouldBeDeletedAndMessageDisplayAs(string p0)

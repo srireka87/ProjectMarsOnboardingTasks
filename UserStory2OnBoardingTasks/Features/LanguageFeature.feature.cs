@@ -76,7 +76,7 @@ namespace UserStory2OnBoardingTasks.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("AddNew Language with Valid Credentials")]
-        [NUnit.Framework.CategoryAttribute("AddingNewLanguages")]
+        [NUnit.Framework.CategoryAttribute("Languages_ADD")]
         [NUnit.Framework.TestCaseAttribute("French", "Basic", null)]
         [NUnit.Framework.TestCaseAttribute("PERSIAN AND URUDHU", "Basic", null)]
         [NUnit.Framework.TestCaseAttribute("Japanese & English", "Native/Bilingual", null)]
@@ -84,7 +84,7 @@ namespace UserStory2OnBoardingTasks.Features
         public void AddNewLanguageWithValidCredentials(string addLanguage, string languageLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "AddingNewLanguages"};
+                    "Languages_ADD"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -122,14 +122,14 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Updating Language with Valid credentials in Profile")]
-        [NUnit.Framework.CategoryAttribute("UpdateLanguages")]
+        [NUnit.Framework.CategoryAttribute("Languages_UPDATE")]
         [NUnit.Framework.TestCaseAttribute("English", "Fluent", "Persian", "Basic", null)]
         [NUnit.Framework.TestCaseAttribute("@#423SFssfUpdating", "Conversational", "Sindhi & Marathi", "Fluent", null)]
         [NUnit.Framework.TestCaseAttribute("How many??languages##arethereinthe* (world)", "Native/Bilingual", "**There are many@@##", "Converational", null)]
         public void UpdatingLanguageWithValidCredentialsInProfile(string updateLanguage, string updateLanguageLevel, string newLanguage, string newLanguageLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "UpdateLanguages"};
+                    "Languages_UPDATE"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -172,14 +172,14 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Adding & Updating  the ExistingLanguage")]
-        [NUnit.Framework.CategoryAttribute("Adding/UpdatingExistingLanguages")]
+        [NUnit.Framework.CategoryAttribute("Languages_SAMELANGUAGE_EXISTS")]
         [NUnit.Framework.TestCaseAttribute("French", "Basic", null)]
         [NUnit.Framework.TestCaseAttribute("Mandarin234", "Fluent", null)]
         [NUnit.Framework.TestCaseAttribute("update23432Great#%#22", "Conversational", null)]
         public void AddingUpdatingTheExistingLanguage(string sameLanguage, string sameLanguageLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "Adding/UpdatingExistingLanguages"};
+                    "Languages_SAMELANGUAGE_EXISTS"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -221,14 +221,14 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Deleting the Language and Language Level")]
-        [NUnit.Framework.CategoryAttribute("DeletingLanguages")]
+        [NUnit.Framework.CategoryAttribute("Languages_DELETE")]
         [NUnit.Framework.TestCaseAttribute("Mandarin", "Basic", null)]
         [NUnit.Framework.TestCaseAttribute("Gujarathi", "Fluent", null)]
         [NUnit.Framework.TestCaseAttribute("Greek", "Native/Bilingual", null)]
         public void DeletingTheLanguageAndLanguageLevel(string language, string languageLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "DeletingLanguages"};
+                    "Languages_DELETE"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -270,13 +270,13 @@ testRunner.Then(string.Format("the records should be deleted and message display
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Cancel the Language when AddNew and Update")]
-        [NUnit.Framework.CategoryAttribute("CancelLanguage")]
+        [NUnit.Framework.CategoryAttribute("Language_CANCEL")]
         [NUnit.Framework.TestCaseAttribute("English", "Fluent", null)]
         [NUnit.Framework.TestCaseAttribute("Arabic", "Basic", null)]
         public void CancelTheLanguageWhenAddNewAndUpdate(string language, string languageLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "CancelLanguage"};
+                    "Language_CANCEL"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -317,14 +317,14 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("AddNew Language with INVALID Credentials")]
-        [NUnit.Framework.CategoryAttribute("EnteringOnlyLanguageORLevel")]
+        [NUnit.Framework.CategoryAttribute("Languages_INVALID")]
         [NUnit.Framework.TestCaseAttribute("Arabic", "", null)]
         [NUnit.Framework.TestCaseAttribute("", "Fluent", null)]
         [NUnit.Framework.TestCaseAttribute("Bengali", "", null)]
         public void AddNewLanguageWithINVALIDCredentials(string language, string languageLevel, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "EnteringOnlyLanguageORLevel"};
+                    "Languages_INVALID"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
