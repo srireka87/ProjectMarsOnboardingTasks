@@ -8,8 +8,8 @@ using UserStory2OnBoardingTasks.Utilities;
 
 namespace UserStory2OnBoardingTasks.StepDefinitions
 {
-    [Binding]
-    public class SkillsFeaturesStepDefinitions :CommonDriver
+   [Binding]
+    public class SkillsFeaturesStepDefinitions
     {
         Login loginPageObj;
         SkillsTabPage skillsTabPageObj;
@@ -19,17 +19,9 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
         {
             profileHomePageObj = new ProfileHomePage();
             skillsTabPageObj = new SkillsTabPage();
-            loginPageObj = new Login();
+           // loginPageObj = new Login();
         }
 
-
-        [Given(@"I logged in to ProjectMars successfully")]
-        public void GivenILoggedInToProjectMarsSuccessfully()
-        {
-            Thread.Sleep(2000);
-            loginPageObj.LoginFunction("srireka87@gmail.com", "Rosesri@23");
-            loginPageObj.LoginAssertion();
-        }
 
         [Given(@"I navigate to Profile Skills Page")]
         public void GivenINavigateToProfileSkillsPage()

@@ -10,8 +10,8 @@ using UserStory2OnBoardingTasks.Utilities;
 namespace UserStory2OnBoardingTasks.StepDefinitions
 {
 
-   //[Binding]
-    public class LanguageFeaturesStepDefinitions:CommonDriver
+  [Binding]
+    public class LanguageFeaturesStepDefinitions 
     {
 
         Login loginPageObj;
@@ -20,19 +20,11 @@ namespace UserStory2OnBoardingTasks.StepDefinitions
 
         public LanguageFeaturesStepDefinitions()
         {
-           loginPageObj = new Login();
+           //loginPageObj = new Login();
            profileHomePageObj = new ProfileHomePage();
            languageTabObj = new LanguagesTabPage();
         }
 
-      
-        [Given(@"I logged in to ProjectMars successfully")]
-        public void GivenILoggedInToProjectMarsSuccessfully()
-        {
-            Thread.Sleep(2000);
-            loginPageObj.LoginFunction("srireka87@gmail.com","Rosesri@23");
-            loginPageObj.LoginAssertion();
-        }
 
         [Given(@"I navigate to Profile Language Page")]
         public void GivenINavigateToProfileLanguagePage()

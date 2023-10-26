@@ -36,9 +36,6 @@ namespace UserStory2OnBoardingTasks.Utilities
                 wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Name(locatorValue)));
             }
 
-
-
-
         }
         public static void WaitToBeVisible(IWebDriver driver, String locatorType, String locatorValue, int seconds)
         {

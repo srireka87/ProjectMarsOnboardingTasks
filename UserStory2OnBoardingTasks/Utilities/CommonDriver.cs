@@ -9,18 +9,21 @@ using System.Threading.Tasks;
 
 namespace UserStory2OnBoardingTasks.Utilities
 {
+   
     public class CommonDriver
-
+       
     {
+
         public static IWebDriver driver;
 
+
         [BeforeScenario]
+        
         public void SetUp()
         {
-            driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
-            driver.Navigate().GoToUrl("http://localhost:5000/");
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+           driver = new ChromeDriver();
+           driver.Manage().Window.Maximize();
+
         }
 
         [AfterScenario]
